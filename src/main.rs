@@ -2,7 +2,6 @@ mod solutions;
 mod utils;
 
 fn main() {
-    // Choose which day to run
-    solutions::day1::run();
-    solutions::day2::run();
+    error!("This is a placeholder for the main function. It should not be called.");
+
 }
