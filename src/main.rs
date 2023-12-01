@@ -1,7 +1,6 @@
 mod solutions;
 mod utils;
-
+use solutions::*;
 fn main() {
-    error!("This is a placeholder for the main function. It should not be called.");
-
+    solution!(day1);
 }

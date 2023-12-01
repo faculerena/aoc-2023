@@ -1,7 +1,6 @@
-use std::fs;
-use std::path::Path;
-
+use crate::{input_string, input_handler};
+use std::io::Read;
 pub fn run() {
-    let input = fs::read_to_string(Path::new("input.txt")).expect("Failed to read input file");
-    // Your solution code here
+    let input = input_string!();
+    println!("Input: {}", input);
 }
