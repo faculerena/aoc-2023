@@ -1,6 +1,6 @@
 mod solutions;
 mod utils;
-use solutions::*;
+use crate::solutions::*;
 fn main() {
     solution!(day1);
 }
