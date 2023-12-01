@@ -1,3 +1,4 @@
+use crate::solutions;
 #[macro_export]
 macro_rules! error {
     ($($arg:tt)*) => ({
@@ -11,9 +12,10 @@ macro_rules! solution {
     ($module:ident) => {
         use std::time::Instant;
         let start = Instant::now();
-        $module::run();
+        let sol = $module::run();
         let duration = start.elapsed();
-        println!("Time elapsed in expensive_function() is: {:?}", duration);
+        println!("{}: {:?}", stringify!($module).replace("day", "Day "), duration);
+        println!("Solution: \n\t {}", sol);
     };
 }
 
