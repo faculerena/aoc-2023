@@ -25,7 +25,7 @@ macro_rules! solution {
 
         println!("{} {}: {:?}", stringify!($module).replace("day", "Day "), "part 2", duration2);
         println!("Solution Part 2: \n\t {}", sol2);
-        sol
+        (sol, sol2)
         }
     };
 }
