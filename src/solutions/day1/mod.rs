@@ -1,6 +1,5 @@
 use crate::{input_string, input_handler};
 use std::io::{Read};
-use regex::Regex;
 pub fn run1() -> String {
     let input = input_string!();
 
@@ -16,8 +15,37 @@ pub fn run1() -> String {
 
     sum.to_string()
 }
-
 pub fn run2() -> String {
+
+    input_string!()
+        .split('\n')
+        .filter_map(|line| {
+            let digits : Vec<u64> = line.replace("one", "one1one")
+                .replace("two", "two2two")
+                .replace("three", "three3three")
+                .replace("four", "four4four")
+                .replace("five", "five5five")
+                .replace("six", "six6six")
+                .replace("seven", "seven7seven")
+                .replace("eight", "eight8eight")
+                .replace("nine", "nine9nine")
+                .chars()
+                .flat_map(|c| c.to_digit(10))
+                .map(|digit| digit as u64)
+                .collect();
+
+            let first_char = digits[0] as u32;
+            let last_char = digits[digits.len() - 1] as u32;
+            Some(first_char * 10 + last_char)
+        })
+        .sum::<u32>().to_string()
+
+}
+
+/*
+pub fn run3() -> String {
+
+    // this was the first attempt to the 2nd part.
     let input = input_string!();
     let mut sum = 0;
 
@@ -78,3 +106,4 @@ fn string_to_int(s: &str) -> u64 {
         _ => s.parse::<u64>().unwrap(),
     }
 }
+*/

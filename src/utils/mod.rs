@@ -45,3 +45,22 @@ macro_rules! input_string {
         }
     };
 }
+
+#[macro_export]
+macro_rules! get_input {
+    () => {
+        {
+            let path = file!().replace("mod.rs", "input.txt");
+            let folder = std::path::Path::new(&path).parent().unwrap().to_str().unwrap().to_string().replace("src/solutions/day", "");
+            let cookie = std::fs::read_to_string(std::path::Path::new(&std::env::var("CARGO_MANIFEST_DIR").unwrap()).join(".cookie")).unwrap();
+            let url = format!("https://adventofcode.com/2023/day/{}/input", folder);
+
+            let mut cmd = std::process::Command::new("curl");
+            cmd.arg("--cookie").arg(cookie).arg(url).arg("-o").arg(path);
+            cmd.output().unwrap();
+            input_string!()
+        }
+    };
+}
+
+
