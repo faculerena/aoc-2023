@@ -88,7 +88,6 @@ pub fn run2() -> String {
                 }
             }
         }
-
         sum += hm.get("red").unwrap() * hm.get("green").unwrap() * hm.get("blue").unwrap();
 
     };
