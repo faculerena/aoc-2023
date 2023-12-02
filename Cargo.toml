@@ -8,3 +8,6 @@ edition = "2021"
 [dependencies]
 chrono = { version = "0.4", features = ["serde"] }
 regex = { version = "1.10.2", features = [] }
+
+[package.metadata.docs.rs]
+allow-dead-code = true
