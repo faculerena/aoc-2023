@@ -1,5 +1,5 @@
-use crate::{input_string, input_handler};
-use std::io::{Read};
+use crate::{input_handler, input_string};
+use std::io::Read;
 
 pub fn run1() -> String {
     let input = input_string!();
@@ -17,11 +17,11 @@ pub fn run1() -> String {
     sum.to_string()
 }
 pub fn run2() -> String {
-
     input_string!()
         .split('\n')
         .filter_map(|line| {
-            let digits : Vec<u64> = line.replace("one", "one1one")
+            let digits: Vec<u64> = line
+                .replace("one", "one1one")
                 .replace("two", "two2two")
                 .replace("three", "three3three")
                 .replace("four", "four4four")
@@ -39,8 +39,8 @@ pub fn run2() -> String {
             let last_char = digits[digits.len() - 1] as u32;
             Some(first_char * 10 + last_char)
         })
-        .sum::<u32>().to_string()
-
+        .sum::<u32>()
+        .to_string()
 }
 
 /*

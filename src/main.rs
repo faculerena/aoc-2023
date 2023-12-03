@@ -9,5 +9,3 @@ fn main() {
     //solution!(day2);
     solution!(day3);
 }
-
-
