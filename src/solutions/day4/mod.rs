@@ -11,8 +11,8 @@ pub fn run1() -> String {
             .split("|")
             .map(|x| {
                 x.trim()
-                    .replace("  ", " ")
                     .split(" ")
+                    .filter(|x| x.len() > 0)
                     .map(|x| x.parse::<u32>().unwrap())
                     .collect()
             })
@@ -24,7 +24,7 @@ pub fn run1() -> String {
         if our_values.len() == 0 {
             continue;
         } else {
-            sum += 2_i32.pow(our_values.len() as u32 - 1);
+            sum += 1 << (our_values.len() as u32 - 1);
         }
     }
     sum.to_string()
@@ -32,16 +32,15 @@ pub fn run1() -> String {
 
 pub fn run2() -> String {
     let input = input_string!();
-
-    let mut card_storage: HashMap<u32, u32> = (1..=199).map(|i| (i, 1)).collect();
+    let mut card_storage= [1; 199];
 
     for (i, line) in input.lines().enumerate() {
         let line_parts: Vec<Vec<u32>> = line[9..]
             .split("|")
             .map(|x| {
                 x.trim()
-                    .replace("  ", " ")
                     .split(" ")
+                    .filter(|x| x.len() > 0)
                     .map(|x| x.parse::<u32>().unwrap())
                     .collect()
             })
@@ -50,13 +49,11 @@ pub fn run2() -> String {
         let mut our_values = line_parts[0].clone();
         our_values.retain(|x| line_parts[1].contains(x));
 
-        for _ in 0..card_storage.get(&(i as u32 + 1)).unwrap().clone() {
-            for j in 1..=our_values.len() as u32 {
-                let next_card = card_storage.get_mut(&(j + i as u32 + 1)).unwrap();
-                *next_card += 1;
+        for _ in 0..card_storage[i] {
+            for j in 1..=our_values.len() {
+                card_storage[j + i] += 1;
             }
         }
     }
-
-    card_storage.values().map(|x| x).sum::<u32>().to_string()
+    card_storage.iter().sum::<u32>().to_string()
 }
