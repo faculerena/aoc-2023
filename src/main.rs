@@ -7,5 +7,6 @@ use crate::solutions::*;
 fn main() {
     //solution!(day1);
     //solution!(day2);
-    solution!(day3);
+    //solution!(day3);
+    solution!(day4);
 }
