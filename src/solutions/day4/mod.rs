@@ -1,5 +1,4 @@
 use crate::{input_handler, input_string};
-use std::collections::HashMap;
 use std::io::Read;
 
 pub fn run1() -> String {
@@ -9,13 +8,7 @@ pub fn run1() -> String {
     for line in input.lines() {
         let line_parts: Vec<Vec<u32>> = line[9..]
             .split("|")
-            .map(|x| {
-                x.trim()
-                    .split(" ")
-                    .filter(|x| x.len() > 0)
-                    .map(|x| x.parse::<u32>().unwrap())
-                    .collect()
-            })
+            .map(|x| x.trim().split(" ").filter(|x| x.len() > 0).collect())
             .collect();
 
         let mut our_values = line_parts[0].clone();
@@ -32,18 +25,12 @@ pub fn run1() -> String {
 
 pub fn run2() -> String {
     let input = input_string!();
-    let mut card_storage= [1; 199];
+    let mut card_storage = [1; 199];
 
     for (i, line) in input.lines().enumerate() {
-        let line_parts: Vec<Vec<u32>> = line[9..]
+        let line_parts: Vec<Vec<_>> = line[9..]
             .split("|")
-            .map(|x| {
-                x.trim()
-                    .split(" ")
-                    .filter(|x| x.len() > 0)
-                    .map(|x| x.parse::<u32>().unwrap())
-                    .collect()
-            })
+            .map(|x| x.trim().split(" ").filter(|x| x.len() > 0).collect())
             .collect();
 
         let mut our_values = line_parts[0].clone();
