@@ -1,4 +1,4 @@
-use crate::{input_handler, input_string};
+use crate::input_string;
 use regex::Regex;
 use std::io::Read;
 pub fn run1() -> String {

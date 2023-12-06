@@ -1,12 +1,4 @@
 #[macro_export]
-macro_rules! error {
-    ($($arg:tt)*) => ({
-        eprintln!($($arg)*);
-        std::process::exit(1);
-    })
-}
-
-#[macro_export]
 macro_rules! solution {
     ($module:ident) => {{
         use std::time::Instant;
@@ -49,7 +41,26 @@ macro_rules! input_handler {
 #[macro_export]
 macro_rules! input_string {
     () => {{
-        let mut file = input_handler!();
+        let path = file!().replace("mod.rs", "input.txt");
+        let mut file = std::fs::File::open(path).unwrap();
+        let mut input = String::new();
+        file.read_to_string(&mut input).unwrap();
+        input
+    }};
+}
+
+#[macro_export]
+macro_rules! input_lines {
+    () => {{
+        input_string!().lines()
+    }};
+}
+
+#[macro_export]
+macro_rules! test_input {
+    () => {{
+        let path = file!().replace("mod.rs", "test.txt");
+        let mut file = std::fs::File::open(path).unwrap();
         let mut input = String::new();
         file.read_to_string(&mut input).unwrap();
         input

@@ -1,4 +1,4 @@
-use crate::{input_handler, input_string};
+use crate::input_string;
 use std::io::Read;
 
 pub fn run1() -> String {
@@ -6,7 +6,7 @@ pub fn run1() -> String {
     let mut sum = 0;
 
     for line in input.lines() {
-        let line_parts: Vec<Vec<u32>> = line[9..]
+        let line_parts: Vec<Vec<_>> = line[9..]
             .split("|")
             .map(|x| x.trim().split(" ").filter(|x| x.len() > 0).collect())
             .collect();
