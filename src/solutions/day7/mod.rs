@@ -1,4 +1,4 @@
-use crate::{input_string, test_input};
+use crate::input_string;
 use std::cmp::Ordering;
 use std::io::Read;
 
@@ -44,7 +44,7 @@ pub fn run2() -> String {
 
     sort_hands(&mut hands, true);
 
-    for (i, hand) in hands.iter().enumerate() {
+    for hand in hands.iter() {
         println!("Hand {:?} --> Type {:?}", hand.cards, hand.hand);
     }
 
@@ -57,7 +57,7 @@ pub fn run2() -> String {
 }
 
 #[derive(Debug)]
-struct Play {
+pub struct Play {
     hand: Hand,
     cards: String,
     bid: u128,
@@ -72,7 +72,7 @@ impl Play {
     }
 }
 #[derive(Debug, Ord, PartialOrd, Eq, PartialEq)]
-enum Hand {
+pub enum Hand {
     HighCard,
     OnePair,
     TwoPairs,
@@ -138,11 +138,9 @@ fn get_hand_type_joker(cards: &[i32; 13]) -> Hand {
     let mut pairs = 0;
     let mut three = false;
     let mut four = false;
-    let mut five = false;
     let jokers = cards[12];
     for i in 0..12 {
         match cards[i] {
-            5 => five = true,
             4 => four = true,
             3 => three = true,
             2 => pairs += 1,
