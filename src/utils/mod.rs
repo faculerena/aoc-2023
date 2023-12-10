@@ -17,7 +17,7 @@ macro_rules! solution {
             "part 1",
             duration1
         );
-        println!("Solution Part 1: \n\t {}", sol);
+        println!("Solution Part 1: \n\t {:?}", sol);
 
         println!(
             "{} {}: {:?}",
@@ -25,7 +25,7 @@ macro_rules! solution {
             "part 2",
             duration2
         );
-        println!("Solution Part 2: \n\t {}", sol2);
+        println!("Solution Part 2: \n\t {:?}", sol2);
         (sol, sol2)
     }};
 }
