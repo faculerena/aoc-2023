@@ -46,21 +46,22 @@ fn get_adjacent(
     matrix: &[Vec<char>],
     (row, col): (usize, usize),
 ) -> impl Iterator<Item = (char, i64, i64)> + '_ {
-    let directions = [(1, 0), (-1, 0), (0, 1), (0, -1)];
     let row = row as i64;
     let col = col as i64;
     let max_row = matrix.len() as i64;
     let max_col = matrix[0].len() as i64;
 
-    directions.iter().filter_map(move |&(d_row, d_col)| {
-        let new_row = row + d_row;
-        let new_col = col + d_col;
-        if new_row >= 0 && new_row < max_row && new_col >= 0 && new_col < max_col {
-            Some((matrix[new_row as usize][new_col as usize], d_row, d_col))
-        } else {
-            None
-        }
-    })
+    [(1, 0), (-1, 0), (0, 1), (0, -1)]
+        .iter()
+        .filter_map(move |&(d_row, d_col)| {
+            let new_row = row + d_row;
+            let new_col = col + d_col;
+            if new_row >= 0 && new_row < max_row && new_col >= 0 && new_col < max_col {
+                Some((matrix[new_row as usize][new_col as usize], d_row, d_col))
+            } else {
+                None
+            }
+        })
 }
 fn is_valid_move(adj: char, curr_type: char, d_row: i64, d_col: i64) -> bool {
     match (adj, curr_type, d_row, d_col) {
