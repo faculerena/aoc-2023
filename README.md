@@ -5,14 +5,14 @@
 | 1   | :heavy_check_mark:  |          2          |
 | 2   | :heavy_check_mark:  |          1          |
 | 3   | :heavy_check_mark:  |         2.2         |
-| 4   | :heavy_check_mark:  |          1          |
+| 4   | :heavy_check_mark:  |         1.5         |
 | 5   | :heavy_check_mark:  |          5          |
 | 6   | :heavy_check_mark:  |          0          |
 | 7   | :heavy_check_mark:  |          2          |
 | 8   | :heavy_check_mark:  |          3          |
 | 9   | :heavy_check_mark:  |         1.3         |
-| 10  |                     |
-| 11  |                     |
+| 10  | :heavy_check_mark:  |          5          |
+| 11  | :heavy_check_mark:  |         1.5         |
 | 12  |                     |
 | 13  |                     |
 | 14  |                     |

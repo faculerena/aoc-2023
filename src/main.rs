@@ -14,5 +14,6 @@ fn main() {
     //solution!(day7);
     //solution!(day8);
     //solution!(day9);
-    solution!(day10);
+    //solution!(day10);
+    solution!(day11);
 }
